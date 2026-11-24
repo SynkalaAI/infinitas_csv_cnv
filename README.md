@@ -23,6 +23,21 @@ python convert_csv.py input\C-2966-8793-6328_sp_score.csv output\sample\inf_scor
 python convert_csv.py --input input\inf_score.csv --output output\sample\C-2966-8793-6328_sp_score.csv
 ```
 
+## 2つのスコアCSVをマージ
+
+`merge_scores.py` は同じ形式のCSVを2つ読み込み、譜面ごとにスコアとクリア状況の良い方を採用します。入力形式が異なる場合はエラーになります。曲名は正規化と登録済みの別名を使って照合し、打鍵カウンタ形式では入力A側の曲名を出力名に使います。入力Aに同じ曲名の別名が複数ある場合は、入力Bの記録をそれぞれの入力A側の曲名にマージします。入力Aに一致する曲名がない場合は標準出力にエラーを表示します（行自体は出力に残します）。出力先を省略するとCSVも標準出力に出るため、未一致のエラー表示がある場合はCSVにそのメッセージが混在します。
+
+```powershell
+python merge_scores.py <入力CSV-A> <入力CSV-B> [出力CSV]
+```
+
+例:
+
+```powershell
+python merge_scores.py input\sample\inf_score.csv input\other\inf_score.csv output\merged\inf_score.csv
+python merge_scores.py input\sample\C-2966-8793-6328_sp_score.csv input\other\sp_score.csv
+```
+
 ## 変換スクリプトを直接実行
 
 ### 打鍵カウンタ形式から公式形式へ
