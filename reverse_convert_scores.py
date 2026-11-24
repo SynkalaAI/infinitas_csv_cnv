@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_INPUT = ROOT / "input" / "C-2966-8793-6328_sp_score.csv"
+DEFAULT_INPUT = ROOT / "input" / "sample" / "C-2966-8793-6328_sp_score.csv"
 DEFAULT_OUTPUT = ROOT / "output" / "sample" / "inf_score.csv"
 LEVEL_DATABASE = ROOT / "data" / "song_levels.json"
 
